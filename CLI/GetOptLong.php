@@ -59,15 +59,7 @@ class GetOptLong {
 	}
 
 	public function __get($name) {
-		if ($this->_values === null)
-			$this->_parse();
-
-		$value = null;
-		$key = $this->_mapping($name);
-
-		if (array_key_exists($key, $this->_values))
-			$value = $this->_values[$key];
-
+		$value = $this->raw($name);
 		if ($value === false)
 			return null;
 
